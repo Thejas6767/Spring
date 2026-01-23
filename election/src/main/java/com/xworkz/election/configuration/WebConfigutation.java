@@ -12,10 +12,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan("com.xworkz.election")
 public class WebConfigutation {
-
-
-
-
     public WebConfigutation(){
 
         System.out.println("this is webconfiguration");
@@ -23,5 +19,10 @@ public class WebConfigutation {
     @Bean
    public ViewResolver ViewReslover(){
         return new InternalResourceViewResolver("/",".jsp");
+   }
+   @Bean
+    public ElectionDto electionDto(){
+       System.out.println("this elsction dto regisatration");
+        return new ElectionDto();
    }
 }

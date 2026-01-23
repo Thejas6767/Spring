@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class ElectionController {
     @PostMapping ("/elctionDetails")
-    public String elctionDetails(ElectionDto electionDto){
+    public String elctionDetails(){
 
-        System.out.println("this is elctionDetails "+electionDto.getPartiName()+ " " +
-                "=="+electionDto.getAge()+"eemail=="+electionDto.getEmail() +" ph=="+electionDto.getPhoneNumber());
-        return "election";
+         return "election";
 
     }
 

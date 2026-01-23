@@ -4,6 +4,8 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.annotation.PostConstruct;
+
 public class WebInit  extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
@@ -19,6 +21,7 @@ public class WebInit  extends AbstractAnnotationConfigDispatcherServletInitializ
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
