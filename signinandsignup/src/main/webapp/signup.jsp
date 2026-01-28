@@ -1,10 +1,18 @@
 <html>
 <body>
-    <h2>Create Account</h2>
-    <form action="register" method="post">
-        Email: <input type="email" name="email"><br>
+
+    <h2>Sign Up</h2>
+    <form action="signup" method="post">
+        Name: <input type="text" name="name"><br>
+        Surname: <input type="text" name="surname"><br>
+        Phone: <input type="number" name="phoneNumber"><br>
+        Email: <input type="text" name="email"><br>
+        Username: <input type="text" name="username"><br>
         Password: <input type="password" name="password"><br>
-        <input type="submit" value="Sign Up Now">
+        Confirm Password: <input type="password" name="confirmPassword"><br>
+        <button type="submit">Register</button>
+        <p>Already have an account? <a href="signin.jsp">Login here</a></p>
+        <p><a href="index.jsp">Back to Home</a></p>
     </form>
 </body>
 </html>
