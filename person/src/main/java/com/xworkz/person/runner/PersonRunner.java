@@ -14,11 +14,14 @@ public class PersonRunner {
 
         entityTransaction.begin();
 
+        PersonEntity personEntity = new PersonEntity(3,"PT",20);
 
-        if (entityManagerFactory == null) {
-            System.out.println("this is empty");
-        } else {
-            System.out.println("this is connected");
-        }
+        entityManager.persist(personEntity);
+        entityTransaction.commit();
+        PersonEntity entity=entityManager.find(PersonEntity.class,3);
+        System.out.println(entity.toString());
+
+
+
     }
 }

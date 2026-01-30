@@ -1,6 +1,8 @@
 package com.xworkz.satellite.runner;
 
 
+import com.xworkz.satellite.entity.Satellite;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -16,10 +18,12 @@ public class SatelliteRunner {
 
 
 
-        if (entityManagerFactory == null) {
-            System.out.println("this is empty");
-        } else {
-            System.out.println("this is connected and Satellite data saved");
-        }
+
+        Satellite satellite = new Satellite(4564,"Ash",209,"Sun");
+
+        entityManager.persist(satellite);
+        entityTransaction.commit();
+        Satellite entity=entityManager.find(Satellite.class,4564);
+        System.out.println(entity.toString());
     }
 }
