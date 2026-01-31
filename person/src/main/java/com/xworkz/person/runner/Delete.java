@@ -1,12 +1,13 @@
 package com.xworkz.person.runner;
 
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class PersonRunner {
+public class Delete {
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Xworkz");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -14,12 +15,15 @@ public class PersonRunner {
 
         entityTransaction.begin();
 
-        PersonEntity personEntity = new PersonEntity(5,"Shashi",23);
 
-        entityManager.persist(personEntity);
-        entityTransaction.commit();
+
         PersonEntity entity=entityManager.find(PersonEntity.class,3);
-        System.out.println(entity.toString());
+        entityManager.remove(entity);
+
+        entityTransaction.commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
 
 
 

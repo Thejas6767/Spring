@@ -1,27 +1,29 @@
-package com.xworkz.person.runner;
+package com.xworkz.satellite.runner;
 
+import com.xworkz.satellite.entity.Satellite;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class PersonRunner {
+public class Merge {
     public static void main(String[] args) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Xworkz");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
         entityTransaction.begin();
+Satellite satellite=new Satellite();
 
-        PersonEntity personEntity = new PersonEntity(5,"Shashi",23);
+        Satellite entity=entityManager.find(Satellite.class,34536);
+        entity.setSatellitename("Burn");
+entityManager.merge(entity);
 
-        entityManager.persist(personEntity);
         entityTransaction.commit();
-        PersonEntity entity=entityManager.find(PersonEntity.class,3);
-        System.out.println(entity.toString());
 
-
-
+        entityManager.close();
+        entityManagerFactory.close();
     }
 }
+
