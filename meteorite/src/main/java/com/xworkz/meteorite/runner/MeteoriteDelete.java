@@ -1,6 +1,5 @@
 package com.xworkz.meteorite.runner;
 
-
 import com.xworkz.meteorite.entity.MeteoriteEntity;
 
 import javax.persistence.EntityManager;
@@ -8,19 +7,18 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class MeteoriteRunner {
+public class MeteoriteDelete {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Xworkz");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         tx.begin();
-        MeteoriteEntity meteorite = new MeteoriteEntity(103, "erty", 458.456, "dfg");
-        em.persist(meteorite);
+        MeteoriteEntity meteorite = em.find(MeteoriteEntity.class, 101);
+        if(meteorite != null) {
+            em.remove(meteorite);
+        }
         tx.commit();
-
-        MeteoriteEntity found = em.find(MeteoriteEntity.class, 103);
-        System.out.println("Found: " + found);
 
         em.close();
         emf.close();
