@@ -2,33 +2,18 @@ package com.xworkz.jobfair.external;
 
 import com.xworkz.jobfair.entity.JobFairEntity;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import java.sql.SQLException;
+import javax.persistence.*;
+
 
 public class JobFair {
     public static void main(String[] args) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Xworkz");
+        EntityManager em = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = em.getTransaction();
+        entityTransaction.begin();
+        Query query = em.createNamedQuery("findById");
 
-        EntityManager em = null;
-        EntityManagerFactory eMF = null;
-        try {
-            eMF = Persistence.createEntityManagerFactory("Xworkz");
-            em = eMF.createEntityManager();
-            EntityTransaction et = em.getTransaction();
-            et.begin();
-
-           JobFairEntity jobFairEntity=em.find(JobFairEntity.class,4);
-           em.remove(jobFairEntity);
-            et.commit();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            em.close();
-            eMF.close();
-        }
-
+        JobFairEntity jobFairEntity =(JobFairEntity) query.getSingleResult();
+        System.out.println(jobFairEntity.toString());
     }
 }

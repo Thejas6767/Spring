@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="job_fair_tb")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@NamedQuery(name="findById",query="select JobFairEntity From JobFairEntity   ")
 public class JobFairEntity {
     @Id
     private  int id ;
