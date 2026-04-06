@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -36,11 +37,6 @@ public class UserController {
 
     private String generatedOtp;
 
-
-    @GetMapping("/")
-    public String home() {
-        return "index";
-    }
 
 
     @GetMapping("/signup")
@@ -70,19 +66,20 @@ public class UserController {
     public String login(@RequestParam String email,
                         @RequestParam String password,
                         HttpSession session,
-                        Model model){
+                        RedirectAttributes redirectAttributes){
 
         UserDto dto = userService.login(email, password);
 
         if(dto != null){
             session.setAttribute("user", dto);
 
-            // ✅ redirect to index (dashboard)
+            redirectAttributes.addFlashAttribute("success", "Welcome " + dto.getName());
+
             return "redirect:/";
         }
 
-        model.addAttribute("error", "Invalid Credentials");
-        return "login";
+        redirectAttributes.addFlashAttribute("error", "Invalid credentials");
+        return "redirect:/login";
     }
     @GetMapping("/adminDashboard")
     public String adminDashboard(HttpSession session){
@@ -332,7 +329,9 @@ public class UserController {
         return "editUser";
     }
     @PostMapping("/updateUser")
-    public String updateUser(UserDto dto, HttpSession session){
+    public String updateUser(UserDto dto,
+                             HttpSession session,
+                             RedirectAttributes redirectAttributes){
 
         UserDto user = (UserDto) session.getAttribute("user");
 
@@ -342,10 +341,14 @@ public class UserController {
 
         userService.updateUser(dto);
 
+        redirectAttributes.addFlashAttribute("success", "User updated successfully ✏️");
+
         return "redirect:/users";
     }
     @GetMapping("/deleteUser")
-    public String deleteUser(@RequestParam int id, HttpSession session){
+    public String deleteUser(@RequestParam int id,
+                             HttpSession session,
+                             RedirectAttributes redirectAttributes){
 
         UserDto user = (UserDto) session.getAttribute("user");
 
@@ -353,10 +356,34 @@ public class UserController {
             return "redirect:/login";
         }
 
-        System.out.println("Deleting ID: " + id); // 🔥 DEBUG
-
         userService.deleteUser(id);
 
+        redirectAttributes.addFlashAttribute("success", "User deleted successfully ✅");
+
         return "redirect:/users";
+    }
+
+    @GetMapping("/")
+    public String redirectToHome() {
+        return "redirect:/home";
+    }
+    @GetMapping("/home")
+    public String home(Model model, HttpSession session){
+
+        UserDto user = (UserDto) session.getAttribute("user");
+
+        if(user == null){
+            return "redirect:/login";
+        }
+
+        long total = userService.getTotalUsers();
+        long male = userService.getMaleCount();
+        long female = userService.getFemaleCount();
+
+        model.addAttribute("totalUsers", total);
+        model.addAttribute("maleUsers", male);
+        model.addAttribute("femaleUsers", female);
+
+        return "index";
     }
 }

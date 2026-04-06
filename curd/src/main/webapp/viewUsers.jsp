@@ -1,6 +1,22 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:if test="${not empty success}">
+    <div style="background: #4CAF50; padding:10px; color:white; text-align:center;">
+        ${success}
+    </div>
+</c:if>
 
+<c:if test="${not empty error}">
+    <div style="background: red; padding:10px; color:white; text-align:center;">
+        ${error}
+    </div>
+</c:if>
+<script>
+    setTimeout(() => {
+        let msg = document.querySelector("div");
+        if(msg) msg.style.display = "none";
+    }, 3000);
+</script>
 <!DOCTYPE html>
 <html>
 <head>

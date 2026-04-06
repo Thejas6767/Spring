@@ -62,6 +62,39 @@
             display: inline-block;
             backdrop-filter: blur(10px);
         }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            width: 200px;
+            text-align: center;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #00e6e6;
+        }
+
     </style>
 </head>
 
@@ -108,6 +141,25 @@
 
 </div>
 
+<c:if test="${sessionScope.user != null && sessionScope.user.role eq 'ADMIN'}">
+<div class="dashboard">
+
+   <div class="card">
+       <h3>Total Users</h3>
+<p>${totalUsers != null ? totalUsers : 0}</p>   </div>
+
+   <div class="card">
+       <h3>Male Users</h3>
+<p>${maleUsers != null ? maleUsers : 0}</p>   </div>
+
+   <div class="card">
+       <h3>Female Users</h3>
+<p>${femaleUsers != null ? femaleUsers : 0}</p>   </div>
+
+
+</div>
+
+</c:if>
 <!-- 🔷 CONTENT -->
 <div class="container">
 

@@ -19,4 +19,7 @@ public interface UserService {
     UserDto getUserById(int id);
 
     void deleteUser(int id);
+    long getTotalUsers();
+    long getMaleCount();
+    long getFemaleCount();
 }

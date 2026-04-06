@@ -24,4 +24,6 @@ public interface UserDAO {
     UserEntity findById(int id);
 
     void delete(int id);
+    long getTotalUsers();
+    long getCountByGender(String gender);
 }

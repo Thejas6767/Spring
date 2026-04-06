@@ -142,4 +142,19 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(int id) {
         userDAO.delete(id);
     }
+
+    @Override
+    public long getTotalUsers() {
+        return userDAO.getTotalUsers();
+    }
+
+    @Override
+    public long getMaleCount() {
+        return userDAO.getCountByGender("male");
+    }
+
+    @Override
+    public long getFemaleCount() {
+        return userDAO.getCountByGender("female");
+    }
 }

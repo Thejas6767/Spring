@@ -144,5 +144,18 @@ public class UserDAOImpl implements UserDAO {
             em.close();
         }
     }
+    @Override
+    public long getTotalUsers() {
+        return (long) entityManagerFactory.createEntityManager()
+                .createQuery("select count(u) from UserEntity u")
+                .getSingleResult();
+    }
 
+    @Override
+    public long getCountByGender(String gender) {
+        return (long) entityManagerFactory.createEntityManager()
+                .createQuery("select count(u) from UserEntity u where lower(u.gender) = lower(:gender)")
+                .setParameter("gender", gender)
+                .getSingleResult();
+    }
 }
