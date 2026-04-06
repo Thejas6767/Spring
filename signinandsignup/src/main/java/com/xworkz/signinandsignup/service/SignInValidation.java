@@ -11,14 +11,10 @@ public class SignInValidation {
     private Database database;
 
     public boolean validate(String username, String password) {
-        if (username == null || password == null) return false;
 
         String dbPassword = database.getPasswordByUsername(username);
 
-        if (dbPassword == null) {
-            System.out.println("Sign-in failed: User not found.");
-            return false;
-        }
+        if (dbPassword == null) return false;
 
         return dbPassword.equals(password);
     }

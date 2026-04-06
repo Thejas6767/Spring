@@ -1,0 +1,17 @@
+package com.xworkz.curdjpa.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CurdDto {
+    private int id;
+    private String name;
+    private String gender;
+    private int age;
+    private String clgName;
+    private long ph;
+}

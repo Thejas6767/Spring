@@ -1,45 +1,56 @@
 package com.xworkz.signinandsignup.repository;
 
-import com.xworkz.signinandsignup.dto.SignUpDto; // Essential Import
+import com.xworkz.signinandsignup.dto.SignUpDto;
 import org.springframework.stereotype.Repository;
+
 import java.sql.*;
 
 @Repository
 public class Database {
-    @Repository
-    public class Database{
 
-        // Define these at the CLASS level (Fields)
-        private String url = "jdbc:mysql://localhost:3306/loginpage_db";
-        private String user = "root";
-        private String pass = "root";
+    private String url = "jdbc:mysql://localhost:3306/loginpage_db";
+    private String user = "root";
+    private String pass = "root";
 
-        public boolean save(SignUpDto dto) {
-            String query = "insert into signup_tb values (?,?,?,?,?,?)";
+    public boolean save(SignUpDto dto) {
 
-            // Now 'url', 'user', and 'pass' are recognized here
-            try (Connection con = DriverManager.getConnection(url, user, pass);
-                 PreparedStatement stmt = con.prepareStatement(query)) {
+        String query = "insert into signup_tb(name,surname,phone,email,username,password) values (?,?,?,?,?,?)";
 
-                stmt.setString(1, dto.getName());
-                // ... rest of your code
-                return stmt.executeUpdate() > 0;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
+        try (Connection con = DriverManager.getConnection(url, user, pass);
+             PreparedStatement stmt = con.prepareStatement(query)) {
+
+            stmt.setString(1, dto.getName());
+            stmt.setString(2, dto.getSurname());
+            stmt.setLong(3, dto.getPhoneNumber());
+            stmt.setString(4, dto.getEmail());
+            stmt.setString(5, dto.getUsername());
+            stmt.setString(6, dto.getPassword());
+
+            return stmt.executeUpdate() > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return false;
     }
 
-
-
     public String getPasswordByUsername(String username) {
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/loginpage_db", "root", "root");
-             PreparedStatement stmt = con.prepareStatement("SELECT password FROM signup_tb WHERE username = ?")) {
+
+        String query = "select password from signup_tb where username=?";
+
+        try (Connection con = DriverManager.getConnection(url, user, pass);
+             PreparedStatement stmt = con.prepareStatement(query)) {
+
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) return rs.getString("password");
-        } catch (Exception e) { e.printStackTrace(); }
+
+            if (rs.next()) {
+                return rs.getString("password");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

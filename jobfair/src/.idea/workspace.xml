@@ -2,16 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b31e883a-ce09-41c7-ac3b-c80022a6f5c7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../employee/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../employee/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../employee/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../employee/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../employee/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../curdjpa/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../curdjpa/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../curdjpa/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../curdjpa/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../curdjpa/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../readingdata/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../readingdata/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../readingdata/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../readingdata/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../readingdata/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../untitled1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../untitled1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../untitled1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../untitled1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../untitled1/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../untitled1/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/configuration/WebConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/configuration/WebConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/configuration/WebInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/configuration/WebInit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/controller/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/controller/FormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/dto/SignUpDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/dto/SignUpDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/repository/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/repository/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/service/SignInValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/service/SignInValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/service/SignUpValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/java/com/xworkz/signinandsignup/service/SignUpValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signInResponse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signInResponse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signUpResponse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signUpResponse.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../signinandsignup/src/main/webapp/signup.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +56,21 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="jobfair" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="jobfair" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

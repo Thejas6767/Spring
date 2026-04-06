@@ -10,21 +10,8 @@ public class SignUpDto {
     private String password;
     private String confirmPassword;
 
-    // No-argument Constructor
     public SignUpDto() {}
 
-    // All-argument Constructor
-    public SignUpDto(String name, String surname, long phoneNumber, String email, String username, String password, String confirmPassword) {
-        this.name = name;
-        this.surname = surname;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
-    }
-
-    // Getters and Setters
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 

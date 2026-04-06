@@ -1,7 +1,12 @@
+<%@ page isELIgnored="false" %>
 <html>
 <body>
-    <h1>Welcome, ${name}!</h1>
-    <p>Registration Successful.</p>
-    <a href="signin.jsp">Login here</a>
+
+<h2>Signup Success</h2>
+Welcome ${name}
+
+<br><br>
+<a href="signinPage">Login Now</a>
+
 </body>
 </html>

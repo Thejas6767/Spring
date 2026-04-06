@@ -7,12 +7,15 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("com.xworkz.signinandsignup") // Scans all sub-packages
+@ComponentScan("com.xworkz.signinandsignup")
 public class WebConfiguration {
+
     @Bean
     public ViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/");
+        InternalResourceViewResolver resolver =
+                new InternalResourceViewResolver();
+
+        resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         return resolver;
     }
